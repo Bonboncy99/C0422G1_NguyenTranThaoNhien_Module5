@@ -1,0 +1,33 @@
+<h1 class="text-center">Login</h1>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="submid()" class="w-75" novalidate>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+             formControlName="email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="text-danger">
+      <p *ngIf="loginForm.controls.email.hasError('required')&&loginForm.controls.email.touched">Email can't be
+        blank</p>
+      <p *ngIf="loginForm.controls.email.hasError('email')&&loginForm.controls.email.touched">Email not valid</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password">
+    </div>
+    <div class="text-danger">
+      <p *ngIf="loginForm.controls.password.hasError('required')&&loginForm.controls.password.touched">Password can't be
+        blank</p>
+      <p *ngIf="loginForm.controls.password.hasError('minlength')&&loginForm.controls.password.touched">Min length =
+        6</p>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+  </form>
+</div>
