@@ -1,0 +1,12 @@
+<p>Dictionary</p>
+<ul>
+  <li *ngFor="let word of dictionary">
+    <span>{{word.word}}</span>
+    <button [routerLink]="['/dictionary',word.word]" style="margin-left: 10px">Chi tiết</button>
+  </li>
+</ul>
+
+
+<label for="search">Tìm kiếm </label>
+<input type="text" id="search" [(ngModel)]="word">
+<button type="submit" (click)="search()">Search</button>
