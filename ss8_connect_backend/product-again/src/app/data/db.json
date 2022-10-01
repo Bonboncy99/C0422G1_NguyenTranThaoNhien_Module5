@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Táo",
+      "price": 10,
+      "description": "Trái cây"
+    },
+    {
+      "id": 2,
+      "name": "Cá chuồn",
+      "price": 20,
+      "description": "Cá"
+    },
+    {
+      "id": 3,
+      "name": "Cải",
+      "price": 15,
+      "description": "Rau"
+    }
+  ]
+}

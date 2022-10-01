@@ -6,6 +6,7 @@
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
+    <td>Thể loại</td>
     <td>Sửa</td>
     <td>Xóa</td>
   </tr>
@@ -16,6 +17,7 @@
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
+    <td *ngIf="product.category">{{product.category.name}}</td>
     <td><a class="btn btn-outline-warning" [routerLink]="['/product/edit',product.id]">Sửa</a></td>
     <td>
       <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
@@ -49,6 +51,4 @@
   </div>
 </div>
 
-<script>
-  document.getElementById('delete').preve
-</script>
+

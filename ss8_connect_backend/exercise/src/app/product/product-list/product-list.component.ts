@@ -9,8 +9,8 @@ import {Product} from "../../model/product";
 })
 export class ProductListComponent implements OnInit {
   productList: Product[] = [];
-  productSearch: Product;
-  productDelete:Product;
+  productDelete: Product;
+
   constructor(private productService: ProductService) {
   }
 
@@ -19,11 +19,12 @@ export class ProductListComponent implements OnInit {
   }
 
   getAll() {
-    this.productList = this.productService.getAll();
+    this.productService.getAll().subscribe(products => {
+      this.productList = products;
+    });
   }
 
-  getProductToDelete(product) {
-    this.productDelete=product;
+  getProductToDelete(product: Product) {
+    this.productDelete = product;
   }
-
 }
