@@ -15,7 +15,7 @@
     <div>
       <label for="category">Thể Loại</label>
       <select name="category" id="category" formControlName="category">
-        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+        <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
       </select>
     </div>
     <div>

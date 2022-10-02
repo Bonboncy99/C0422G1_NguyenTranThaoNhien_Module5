@@ -26,80 +26,50 @@
       "id": 2,
       "name": "IPhone 11",
       "price": 1560000,
-      "description": "Like new  "
-    },
-    {
-      "id": 3,
-      "name": "IPhone X",
-      "price": 968000,
-      "description": "97%"
-    },
-    {
-      "id": 4,
-      "name": "IPhone 8",
-      "price": 7540000,
-      "description": "98%6"
-    },
-    {
-      "id": 5,
-      "name": "fdbfdb",
-      "price": null,
-      "description": "fdvd"
-    },
-    {
-      "id": 6,
-      "name": "btrnyt",
-      "price": 42423,
-      "description": "rgtrg"
-    },
-    {
-      "id": 7,
-      "name": "tthtr",
-      "price": 23,
-      "description": "4"
-    },
-    {
-      "id": 9,
-      "name": "4535",
-      "price": 435435,
-      "description": "43543534",
-      "category": "3"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "price": null,
-      "description": null,
-      "category": null
-    },
-    {
-      "id": 12,
-      "name": "11",
-      "price": 11,
-      "description": "11",
+      "description": "Like new  ",
       "category": {
         "id": 1,
         "name": "Loại 1"
       }
     },
     {
-      "id": 13,
-      "name": "22",
-      "price": 22,
-      "description": "22",
+      "id": 3,
+      "name": "IPhone X",
+      "price": "IPhone X",
+      "description": "IPhone X",
       "category": {
         "id": 2,
         "name": "Loại 2"
       }
     },
     {
-      "id": 14,
-      "name": "333",
-      "price": 333,
-      "description": "33",
+      "id": 4,
+      "name": "IPhone 8",
+      "price": 7540000,
+      "description": "98%6",
       "category": {
         "id": 3,
         "name": "Loại 3"
+      }
+    },
+    {
+      "id": 5,
+      "name": "fdbfdb",
+      "price": 1,
+      "description": "fdvd",
+      "category": {
+        "id": 2,
+        "name": "Loại 2"
+      }
+    },
+    {
+      "id": 6,
+      "name": "bon",
+      "price": 1,
+      "description": "Bon",
+      "category": {
+        "id": 2,
+        "name": "Loại 2"
       }
     }
   ],

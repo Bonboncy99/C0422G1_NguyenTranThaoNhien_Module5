@@ -12,53 +12,53 @@ import {CategoryService} from "../../service/category.service";
   styleUrls: ['./product-update.component.css']
 })
 export class ProductUpdateComponent implements OnInit {
-  product: Product;
+  productUpdate: Product;
+  idUpdate;
   updateProductForm: FormGroup;
   categoryList: Category[] = [];
-  idUpdate:number;
+
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute,
               private router: Router, private categoryService: CategoryService) {
-    activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
-        this.idUpdate= +paramMap.get('id');
-    },()=>{
-
-      },()=>{
-      categoryService.findById(this.idUpdate).subscribe(product=>{
-        this.product = product;
-      },()=>{
-
-      },()=>{
-        this.oldProduct();
-        this.categoryService.getAll().subscribe(categoryList=>{
-          this.categoryList = categoryList;
-        })
-      })
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.idUpdate = parseInt(paramMap.get('id'));
+    })
+    this.categoryService.getAll().subscribe(categoryList => {
+        this.categoryList = categoryList;
       })
   }
 
-  ngOnInit()
-    :
-    void {
-  }
-
-    oldProduct()
-    {
-      this.updateProductForm = new FormGroup({
-        id: new FormControl(this.product.id),
-        name: new FormControl(this.product.name),
-        price: new FormControl(this.product.price),
-        description: new FormControl(this.product.description),
-        category: new FormControl(this.product.category)
-      })
-    }
-
-    submid()
-    {
-      console.log(this.updateProductForm.value)
-      const product = this.updateProductForm.value;
-      this.productService.updateProduct(product.id, product).subscribe(next => {
-        this.router.navigateByUrl('product/list');
-      });
-    }
+  ngOnInit(): void {
+    this.oldValue(this.idUpdate)
 
   }
+
+  getForm() {
+    this.updateProductForm = new FormGroup({
+      name: new FormControl(this.productUpdate.name),
+      price: new FormControl(this.productUpdate.price),
+      description: new FormControl(this.productUpdate.description),
+      category: new FormControl(this.productUpdate.category)
+    })
+
+  }
+
+  oldValue(id) {
+    this.productService.findById(id).subscribe(product => {
+      this.productUpdate = product;
+    }, () => {
+
+    }, () => {
+      this.getForm();
+    })
+  }
+
+
+  submid() {
+    console.log(this.updateProductForm.value)
+    const product = this.updateProductForm.value;
+    product.id = this.productUpdate.id;
+    this.productService.updateProduct(product.id, product).subscribe(next => {
+      this.router.navigateByUrl('product/list');
+    });
+  }
+}
