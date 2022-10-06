@@ -1,0 +1,111 @@
+<body>
+<h1 class="text-warning text-center">Update Customer</h1>
+
+<div class="container">
+  <div class="col-md-4">
+    <a class="btn btn-primary" routerLink="/list">Return</a>
+  </div>
+  <div class="d-flex justify-content-center">
+    <form *ngIf="formUpdate" action="/customer/add" method="post" class="w-75 p-5 shadow-lg text-warning"
+          [formGroup]="formUpdate" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="name" class="form-label">Id <span class="text-danger">(*)</span></label>
+            <input type="text" readonly class="form-control" placeholder="Enter name" id="id"
+                   formControlName="id">
+
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name <span class="text-danger">(*)</span></label>
+            <input type="text" class="form-control" placeholder="Enter name" id="name"
+                   formControlName="name">
+            <div class="text-danger" *ngIf="!name.valid && name.touched">
+              <span *ngIf="name.errors.required">Customer code must not be blank</span>
+              <span *ngIf="name.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="vehicleType" class="form-label">Vehicle Type <span class="text-danger">(*)</span></label>
+            <input type="text" class="form-control" placeholder="Enter vehicle type" id="vehicleType"
+                   formControlName="vehicleType" [value]="vehicleUpdate.vehicleType">
+            <div class="text-danger" *ngIf="!vehicleType.valid && vehicleType.touched">
+              <span *ngIf="vehicleType.errors.required">Customer code must not be blank</span>
+              <span *ngIf="vehicleType.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Select from point <span class="text-danger">(*)</span></label>
+            <select class="form-control" formControlName="fromPoint">
+<!--              <option *ngFor="let position of positionList" [ngValue]="position">{{position.name}}</option>-->
+              <option *ngFor="let location of locationList" [ngValue]="location">{{location}}</option>
+            </select>
+            <!--            <div class="text-danger" *ngIf="!type.valid && type.touched">-->
+            <!--              <span *ngIf="type.errors.required">Select Type</span>-->
+            <!--            </div>-->
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Select end point <span class="text-danger">(*)</span></label>
+            <select class="form-control" formControlName="endPoint">
+
+              <option *ngFor="let location of locationList" [ngValue]="location">{{location}}</option>
+<!--              <option *ngFor="let position of positionList" [ngValue]="position">{{position.name}}</option>-->
+            </select>
+<!--                        <div class="text-danger" *ngIf="!type.valid && type.touched">-->
+<!--                          <span *ngIf="type.errors.required">Select Type</span>-->
+<!--                        </div>-->
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">phone <span class="text-danger">(*)</span></label>
+            <input type="text" class="form-control" placeholder="Enter phone" id="phone"
+                   formControlName="phone">
+            <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+              <span *ngIf="phone.errors.required">Phone code must not be blank</span>
+              <span *ngIf="phone.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">email <span class="text-danger">(*)</span></label>
+            <input type="text" class="form-control" placeholder="Enter email" id="email"
+                   formControlName="email">
+            <div class="text-danger" *ngIf="!email.valid && email.touched">
+              <span *ngIf="email.errors.required">Email must not be blank</span>
+              <span *ngIf="email.errors.email">Wrong format</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="startTime" class="form-label">Start Time <span class="text-danger">(*)</span></label>
+            <input type="time" class="form-control" placeholder="Enter start time" id="startTime"
+                   formControlName="startTime">
+            <div class="text-danger" *ngIf="!startTime.valid && startTime.touched">
+              <span *ngIf="startTime.errors.required">Time must not be blank</span>
+              <span *ngIf="endTime.errors.timeCheck">Time from 5:00 AM to 23:00 PM</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="endTime" class="form-label">End time <span class="text-danger">(*)</span></label>
+            <input type="time" class="form-control" placeholder="Enter end time" id="endTime"
+                   formControlName="endTime">
+            <div class="text-danger" *ngIf="!endTime.valid && endTime.touched">
+              <span *ngIf="endTime.errors.required">Time must not be blank</span>
+              <span *ngIf="endTime.errors.timeCheck">Time from 5:00 AM to 23:00 PM</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="btn btn-primary" type="reset">Clear</button>
+      <button type="submit" id="updateBtn" class="btn btn-outline-warning" [disabled]="!formUpdate.valid">Update
+      </button>
+    </form>
+  </div>
+</div>
+</body>
+
+<!--{{idUpdate}}-->
+<!--<div *ngFor="let dcs of typeList">{{dcs.name}}</div>-->
+<!--{{peopleUpdate.name}}-->
+<!--{{peopleUpdate.type.name}}-->

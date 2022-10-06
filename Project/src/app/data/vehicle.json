@@ -1,0 +1,88 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "Xe bon",
+      "vehicleType": "Giường nằm",
+      "fromPoint": "Quảng Trị",
+      "endPoint": "Huế",
+      "phone": "0931234567",
+      "email": "thaonhien9991@gmail.com",
+      "startTime": "12:20",
+      "endTime": "14:08"
+    },
+    {
+      "name": "Banh",
+      "vehicleType": "Giường ngồi",
+      "fromPoint": "Đà Nẵng",
+      "endPoint": "Quảng Trị",
+      "phone": "0945423362",
+      "email": "junghoseokbon@gmail.com",
+      "startTime": "12:57",
+      "endTime": "22:57",
+      "id": 2
+    },
+    {
+      "name": "AAAAA",
+      "vehicleType": "Giường nằm",
+      "fromPoint": "Đà Nẵng",
+      "endPoint": "Đà Nẵng",
+      "phone": "0931234567",
+      "email": "thaonhien9991@gmail.com",
+      "startTime": "14:01",
+      "endTime": "21:04",
+      "id": 3
+    },
+    {
+      "name": "CYYYYYY",
+      "vehicleType": "Giường nằm",
+      "fromPoint": "Quảng Trị",
+      "endPoint": "Đà Nẵng",
+      "phone": "0971234567",
+      "email": "junghoseokbon@gmail.com",
+      "startTime": "21:04",
+      "endTime": "12:09",
+      "id": 4
+    },
+    {
+      "name": "Nhiên",
+      "vehicleType": "Giường ngồi",
+      "fromPoint": "Quảng Trị",
+      "endPoint": "Đà Nẵng",
+      "phone": "0945423362",
+      "email": "wonwoobon@gmail.com",
+      "startTime": "21:11",
+      "endTime": "13:07",
+      "id": 5
+    },
+    {
+      "name": "bon",
+      "vehicleType": "Giường ngồi",
+      "fromPoint": "Đà Nẵng",
+      "endPoint": "Đà Nẵng",
+      "phone": "0945423362",
+      "email": "wonwoobon@gmail.com",
+      "startTime": "12:08",
+      "endTime": "22:08",
+      "id": 6
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "name": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Quảng Trị"
+    },
+    {
+      "id": 3,
+      "name": "Quảng Bình"
+    },
+    {
+      "id": 4,
+      "name": "Huế"
+    }
+  ]
+}
