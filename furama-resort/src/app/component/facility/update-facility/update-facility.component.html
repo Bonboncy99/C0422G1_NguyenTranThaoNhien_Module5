@@ -1,0 +1,81 @@
+<body>
+<h1 class="p-3 text-warning text-center">Cập nhật dịch vụ</h1>
+
+<div class="d-flex justify-content-center">
+  <form action="/facility/addFacility" method="post" class="text-warning fw-bold  w-75 mt-5 mb-5 shadow-lg p-5" th:object="${facilityDto}">
+    <select class="form-select-lg w-50 m-auto mt-3 border-success rounded-pill" id="addSelect"
+            onchange="displayInput()">
+      <option  value="none">Chọn loại dịch vụ</option>
+      <option  value="1">Villa</option>
+      <option  value="2">House</option>
+      <option  value="3">Room</option>
+    </select>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 ">
+        <div class="mb-3">
+          <label for="facilityName" class="form-label ">1. Nhập Tên dịch vụ</label>
+          <input type="text" class="form-control" id="facilityName"
+                 placeholder="Nhập Tên dịch vụ" >
+        </div>
+        <div class="mb-3">
+          <label for="area" class="form-label ">2. Nhập Diện tích sử dụng</label>
+          <input type="text" class="form-control" id="area"
+                 placeholder="Nhập Diện tích" >
+        </div>
+        <div class="mb-3">
+          <label for="cost" class="form-label ">3. Nhập chi phí thuê</label>
+          <input type="text" class="form-control" id="cost"
+                 placeholder="Nhập chi phí thuê">
+        </div>
+        <div class="mb-3">
+          <label for="maxPeople" class="form-label ">4. Nhập số người tối đa</label>
+          <input type="text" class="form-control" id="maxPeople"
+                 placeholder="4. Nhập số người tối đa">
+        </div>
+        <div class="mb-3">
+          <label for="rentType" class="form-label">5. Chọn kiểu thuê</label>
+          <select name="kieuThue" id="rentType" class="form-control">
+            <option value="1">Thuê theo giờ</option>
+            <option value="1">Thuê theo ngày</option>
+            <option value="1">Thuê theo tháng</option>
+            <option value="1">Thuê theo năm</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 ">
+        <div class="mb-3 " style="display: none" id="divStandardRoom">
+          <label for="standardRoom" class="form-label ">Nhập Tiêu chuẩn phòng</label>
+          <input type="text" class="form-control" id="standardRoom"
+                 placeholder="Nhập Tiêu chuẩn phòng">
+        </div>
+        <div class="mb-3 " style="display: none" id="divDescriptionOtherConvenience">
+          <label for="descriptionOtherConvenience" class="form-label ">Nhập Mô tả tiện nghi khác</label>
+          <input type="text" class="form-control" id="descriptionOtherConvenience"
+                 placeholder="Nhập Mô tả tiện nghi khác">
+        </div>
+        <div class="mb-3 " style="display: none" id="divPoolArea">
+          <label for="poolArea" class="form-label ">Nhập Diện tích hồ bơi</label>
+          <input type="text" class="form-control"
+                 placeholder="Nhập Diện tích hồ bơi" id="poolArea">
+
+        </div>
+        <div class="mb-3 " style="display: none" id="divNumberOfFloor">
+          <label for="numberOfFloor" class="form-label ">Nhập Số tầng</label>
+          <input type="text" class="form-control"
+                 placeholder="Nhập Số tầng" id="numberOfFloor">
+
+        </div>
+        <div class="mb-3 " style="display: none" id="divFacilityFree">
+          <label for="facilityFree" class="form-label ">Nhập dịch vụ miễn phí đi kèm</label>
+          <input type="text" class="form-control"
+                 placeholder="Nhập dịch vụ miễn phí đi kèm" id="facilityFree">
+        </div>
+      </div>
+    </div>
+    <div>
+      <a class="btn btn-primary" routerLink="/facility">Quay lại</a>
+      <button type="submit" id="update" class="btn btn-outline-warning">Cập nhật</button>
+    </div>
+  </form>
+</div>
+</body>

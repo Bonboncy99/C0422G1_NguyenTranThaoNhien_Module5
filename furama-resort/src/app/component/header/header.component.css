@@ -1,0 +1,14 @@
+nav{
+  background: linear-gradient(to left, #74EBD5, #9FACE6);
+  padding: 0;
+}
+
+nav li {
+  line-height: 60px;
+}
+li:hover {
+  background: rgba(255,255,255,0.2);
+}
+button:hover {
+    opacity: 0.8;
+}

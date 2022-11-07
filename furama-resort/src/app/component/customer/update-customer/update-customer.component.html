@@ -1,0 +1,102 @@
+
+<body>
+<h1 class="text-warning text-center">Update Customer</h1>
+
+<div class="container">
+  <div class="col-md-4">
+<!--    <a class="btn btn-primary" routerLink="/customer">Return</a> {{customerUpdate.customerType.name}}-->
+  </div>
+  <div class="d-flex justify-content-center">
+    <form action="/customer/add" method="post" *ngIf="formUpdate" [formGroup]="formUpdate" (ngSubmit)="submit()" class="w-75 p-5 shadow-lg text-warning">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Select customer type</label>
+            <select class="form-control" formControlName="customerType">
+              <option *ngFor="let type of customerTypeList" [ngValue]="type.id">{{type.name}}</option>
+            </select>
+
+          </div>
+          <div class="mb-3">
+            <label for="customerCode" class="form-label">Customer Code</label>
+            <input type="text" class="form-control" placeholder="Enter Customer Code"  id="customerCode" formControlName="customerCode">
+            <div class="text-danger" *ngIf="!customerCode.valid && customerCode.touched">
+              <span *ngIf="customerCode.errors.required">Customer code must not be blank</span>
+              <span *ngIf="customerCode.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="customerName" class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name"  id="customerName" formControlName="name">
+            <div class="text-danger" *ngIf="!name.valid && name.touched">
+              <span *ngIf="name.errors.required">Customer name must not be blank</span>
+              <span *ngIf="name.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="birthday" class="form-label">Birthday</label>
+            <input type="date" class="form-control" id="birthday" formControlName="dateOfBirth">
+            <div class="text-danger" *ngIf="!dateOfBirth.valid && dateOfBirth.touched">
+              <span *ngIf="dateOfBirth.errors.required">Select Type</span>
+              <span *ngIf="dateOfBirth.errors.ageValid">Age must >18 and <100</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Select gender</label>
+            <select class="form-control" formControlName="gender">
+              <option *ngIf="customerUpdate.gender">Nam</option>
+              <option *ngIf="!customerUpdate.gender">Nữ</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="idCard" class="form-label">ID Card</label>
+            <input type="text" class="form-control" placeholder="Enter Id card" id="idCard" formControlName="idCard">
+            <div class="text-danger" *ngIf="!idCard.valid && idCard.touched">
+              <span *ngIf="idCard.errors.required">Id card must not be blank</span>
+              <span *ngIf="idCard.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" placeholder="Enter phone" id="phone" formControlName="phone">
+            <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+              <span *ngIf="phone.errors.required">Phone must not be blank</span>
+              <span *ngIf="phone.errors.pattern">Wrong format</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" placeholder="Enter email" id="email" formControlName="email">
+            <div class="text-danger" *ngIf="!email.valid && email.touched">
+              <span *ngIf="email.errors.required">Customer code must not be blank</span>
+              <span *ngIf="email.errors.email">Wrong format</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" placeholder="Enter address" id="address" formControlName="address">
+            <div class="text-danger" *ngIf="!address.valid && address.touched">
+              <span *ngIf="address.errors.required">Address must not be blank</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="btn btn-primary" type="reset">Clear</button>
+      <button type="submit" id="updateBtn" class="btn btn-outline-warning">Update</button>
+    </form>
+  </div>
+</div>
+</body>
+
+
+

@@ -1,0 +1,279 @@
+
+<body>
+<!--navbar-->
+<div style="height: 150px;"></div>
+<h1 class="text-primary text-center">List Contract</h1>
+<div class="container mt-5 mb-5">
+  <input type="hidden" id="messAction" >
+  <p></p>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addContract">
+    Thêm hợp đồng
+  </button>
+  <table id="listContract" class="table table-hover table-bordered">
+    <thead class="bg-danger text-white fw-bold text-center">
+    <tr>
+      <th>#</th>
+      <th>Dịch vụ</th>
+      <th>Khách hàng</th>
+      <th>Ngày bắt đầu</th>
+      <th>Ngày kết thúc</th>
+      <th>Tiền Đặt cọc</th>
+      <th>Tổng Tiền</th>
+      <th>Dịch vụ đi kèm</th>
+    </tr>
+    </thead>
+    <tbody id="contract-body">
+    <tr *ngFor="let contract of contractList">
+      <td>{{contract.id}}</td>
+      <td>{{contract.facility}}</td>
+      <td>{{contract.customer}}</td>
+      <td>{{contract.startDate}}</td>
+      <td>{{contract.endDate}}</td>
+      <td>{{contract.deposit}}</td>
+      <td>{{contract.total}}</td>
+      <td>
+        <div class="d-flex justify-content-around">
+          <button type="button" class="btn btn-primary"
+                  data-bs-toggle="modal" data-bs-target="#addAF">
+            +
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listService">
+            Danh sách các dịch vụ đi kèm
+          </button>
+        </div>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--phân trang-->
+<!--<nav aria-label="Page navigation example">-->
+<!--  <ul class="pagination">-->
+<!--    <li class="page-item"><a class="page-link" th:href="@{contract(page=0)}">First</a></li>-->
+<!--    <li class="page-item"><a class="page-link"-->
+<!--                             th:href="@{contract(page=${contractPageList.number - 1})}"-->
+<!--                             th:if="${contractPageList.hasPrevious()}">Previous</a></li>-->
+<!--    <li class="page-item"><a class="page-link"-->
+<!--                             th:href="@{contract(page=${contractPageList.number + 1})}"-->
+<!--                             th:if="${contractPageList.hasNext()}">Next</a></li>-->
+<!--    <li class="page-item"><a class="page-link"-->
+<!--                             th:href="@{contract(page=${contractPageList.totalPages - 1})}">Last</a></li>-->
+<!--    <li class="page-item disabled">-->
+<!--            <span class="page-link">-->
+<!--                <span th:text="${contractPageList.number+1}"></span>-->
+<!--                /-->
+<!--                <span th:text="${contractPageList.totalPages}"></span>-->
+
+<!--            </span>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</nav>-->
+
+<!--Modal thêm dịch vụ đi kèm-->
+<div class="modal" id="addAF">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Thêm dịch vụ đi kèm</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form action="contract/addAF">
+        <!-- Modal body -->
+        <input type="hidden" id="idContract" name="idContract">
+        <div class="modal-body">
+          <label class="form-label" for="attachID">Chọn dịch vụ đi kèm muốn thêm</label>
+          <div class="mb-3">
+            <select class="form-control" name="attachID" id="attachID">
+              <option value="1">option1</option>
+              <option value="2">option2</option>
+              <option value="3">option3</option>
+              <option value="4">option4</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="quantity" class="form-label">Nhập số lượng</label>
+            <input type="text" id="quantity" name="quantity" class="form-control"></div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Thêm</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!--modal add contract-->
+<div class="modal" id="addContract">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-success text-center text-white fw-bold">
+        <h4 class="modal-title">ADD CONTRACT</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form action="/contract/add" method="post">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="mb-3 mt-3">
+            <label for="startDate" class="form-label">Chọn ngày bắt đầu:</label>
+            <input type="date" class="form-control" id="startDate">
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="endDate" class="form-label">Chọn ngày kết thúc:</label>
+            <input type="date" class="form-control" id="endDate">
+          </div>
+          <div class="mb-3">
+            <label for="moneySend" class="form-label">Nhập Tiền đặt cọc:</label>
+            <input type="text" class="form-control" id="moneySend" placeholder="Nhập Tiền gửi">
+          </div>
+          <!--                        <div class="mb-3">-->
+          <!--                            <label for="totalMoney" class="form-label">Tổng tiền</label>-->
+          <!--                            <input type="number" class="form-control bg-secondary" readonly id="totalMoney">-->
+          <!--                            &lt;!&ndash;                                   name="totalMoney">&ndash;&gt;-->
+          <!--                        </div>-->
+          <div>
+            <label for="customer" class="form-label">Khách hàng thuê dịch vụ</label>
+            <select id="customer" class="form-control" >
+              <option value="">Chọn khách hàng</option>
+              <option value="1">Nguyễn Văn A</option>
+              <option value="2">Nguyễn Văn B</option>
+              <option value="3">Nguyễn Văn C</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="employee" class="form-label">Nhân viên làm hợp đồng</label>
+            <select id="employee" class="form-control" >
+              <option value="">Chọn Nhân viên</option>
+              <option value="1">Nguyễn Văn A</option>
+              <option value="2">Nguyễn Văn B</option>
+              <option value="3">Nguyễn Văn C</option>
+            </select>
+          </div>
+          <div>
+            <label for="service" class="form-label">Dịch vụ</label>
+            <select
+              id="service" class="form-control">
+              <option value="">Chọn dịch vụ</option>
+              <option value="1">Nguyễn Văn A</option>
+              <option value="2">Nguyễn Văn B</option>
+              <option value="3">Nguyễn Văn C</option>
+            </select>
+          </div>
+          <!--                        <div class="mb-3">-->
+          <!--                            <label class="form-label">Dịch vụ đính kèm</label>-->
+          <!--                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+          <!--                                    data-bs-target="#listService">-->
+          <!--                                +-->
+          <!--                            </button>-->
+          <!--                        </div>-->
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal">ADD</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+<!--modal display list service-->
+<div class="modal" id="listService">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-info">
+        <h4 class="modal-title text-center text-white">List Service</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>List Service</p>
+        <table class="table table-bordered table-hover">
+          <thead class="bg-danger text-white text-center fw-bold">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th>Status</th>
+            <th>Quatity</th>
+          </tr>
+          </thead>
+          <tbody id="AFBody">
+          </tbody>
+        </table>
+        <p id="total"></p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/jquery-3.6.1.min.js"></script>
+<script>
+  <!--    Hàm hiển thị danh sách đi kèm của từng hợp đồng-->
+  function showAF(id) {
+    $.ajax({
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      type: "GET",
+
+      url: "http://localhost:8080/attachRest?id=" + id,
+      success: function (attachQuanitityList) {
+        console.log(attachQuanitityList);
+        let htmlStr = "";
+        let total = 0;
+
+        if (attachQuanitityList != null) {
+          for (let i = 0; i < attachQuanitityList.length; i++) {
+            total += (attachQuanitityList[i].price * attachQuanitityList[i].quantity);
+            htmlStr += `<tr>
+                            <td>${i + 1}</td>
+                            <td>${attachQuanitityList[i].attachName}</td>
+                            <td>${attachQuanitityList[i].price}</td>
+                            <td>${attachQuanitityList[i].unit}</td>
+                            <td>${attachQuanitityList[i].status}</td>
+                            <td>${attachQuanitityList[i].quantity}</td>
+                            </tr>`
+          }
+        }
+        $('#AFBody').html(htmlStr);
+        if (total != 0) {
+          $('#total').html("Tổng tiền dịch vụ đi kèm là : " + total + ' đồng')
+        } else {
+          $('#total').html("");
+        }
+      },
+      error: function (resultError) {
+        alert('error');
+      }
+    });
+  }
+
+  //        Hàm gửi idcontract để thêm dịch vụ đi kèm
+  function getIdContract(id) {
+    $('#idContract').val(id);
+  }
+</script>
