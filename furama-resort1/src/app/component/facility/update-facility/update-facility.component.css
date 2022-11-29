@@ -1,0 +1,17 @@
+body{
+  background: url("https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat  center;
+  background-size: cover;
+}
+h1{
+  font-family: Sofia;
+}
+form {
+  background: rgba(0,0,0,0.6);
+  border-radius: 10px;
+}
+label{
+  font-family: Garamond, Serif;
+}
+#update{
+  margin-left: 10px;
+}

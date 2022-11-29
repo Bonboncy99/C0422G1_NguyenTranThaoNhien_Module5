@@ -1,0 +1,379 @@
+
+<h1 class="bg-danger text-center text-white p-3" style="margin-top: 150px">DANH SÁCH NHÂN VIÊN</h1>
+<input type="hidden"  id="messInput">
+<a href="/employee" id="reloadBtn"></a>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addModal">Thêm mới</button>
+
+<!--Form search-->
+<div class="container">
+  <!--        search thuwofng-->
+  <form action="/employee/search">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" i name="name"
+             placeholder="Search name">
+      <button class="btn btn-success" id="searchBtn" type="submit">Go</button>
+    </div>
+  </form>
+</div>
+
+<!--table list employee-->
+<table class="table table-bordered table-hover table-light table-striped table-responsive">
+  <thead class="table-danger text-center">
+  <tr>
+    <th>#</th>
+    <th>Tên nhân viên</th>
+    <th>Ngày sinh</th>
+    <th>Số CMND</th>
+    <th>Số điện thoại</th>
+    <th>Email</th>
+    <th>Địa chỉ</th>
+    <th>Trình độ</th>
+    <th>Vị trí</th>
+    <th>Bộ phận</th>
+    <th>Lương</th>
+    <th colspan="3">Các chức năng</th>
+  </tr>
+  </thead>
+  <tbody id="employeeBody">
+  <tr *ngFor="let employee of employeeList">
+    <td>{{employee.id}}</td>
+    <td>{{employee.name}}</td>
+    <td>{{employee.dateOfBirth}}</td>
+    <td>{{employee.idCard}}</td>
+    <td>{{employee.phone}}</td>
+    <td>{{employee.email}}</td>
+    <td>{{employee.address}}</td>
+    <td>{{employee.position}} </td>
+    <td>{{employee.educationDegree}} </td>
+    <td>{{employee.division}}</td>
+    <td>{{employee.salary}}</td>
+    <td>
+      <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+              data-bs-target="#updateModal">
+        Update
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-outline-danger"
+              data-bs-toggle="modal" data-bs-target="#deleteModal">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<!-- The Add Modal -->
+<div class="modal" id="addModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header bg-success text-white text-center">
+        <h4 class="modal-title">Thêm mới Nhân viên</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form action="/employee/add" method="post" class="bg-light text-success fw-bold">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="newName" class="form-label ">1. Nhập tên nhân viên</label>
+            <input type="text" class="form-control" id="newName"
+                   placeholder="Nhập tên nhân viên">
+          </div>
+          <div class="mb-3">
+            <label for="newBirthDay" class="form-label ">2. Nhập ngày sinh </label>
+            <input type="date" class="form-control" id="newBirthDay"
+                   placeholder="Nhập ngày sinh">
+          </div>
+          <div class="mb-3">
+            <label for="newIDCard" class="form-label ">3. Nhập số CMND</label>
+            <input type="text" class="form-control" id="newIDCard"
+                   placeholder="Nhập số CMND">
+          </div>
+          <div class="mb-3">
+            <label for="newPhone" class="form-label ">4. Nhập số điện thoại</label>
+            <input type="text" class="form-control" id="newPhone"
+                   placeholder="Nhập số điện thoại">
+          </div>
+          <div class="mb-3">
+            <label for="newEmail" class="form-label ">5. Nhập email</label>
+            <input type="text" class="form-control" id="newEmail"
+                   placeholder="Nhập email">
+          </div>
+          <div class="mb-3">
+            <label for="newAddress" class="form-label ">5. Nhập địa chỉ</label>
+            <input type="text" class="form-control" id="newAddress"
+                   placeholder="Nhập địa chỉ">
+          </div>
+          <div class="mb-3">
+            <label for="newED" class="form-label ">6. Chọn trình độ</label>
+            <select id="newED" class="form-control">
+              <option value="1">Trung cấp</option>
+              <option value="2">Đại học</option>
+              <option value="3">Sau đại học</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="newPosition" class="form-label ">7. Chọn vị trí</label>
+            <select id="newPosition" class="form-control">
+              <option value="1">Giám Đốc</option>
+              <option value="2">Quản lý</option>
+              <option value="3">Nhân viên</option>
+            </select>
+          </div>
+          <div class="mb-3">.
+            <label for="newDivision" class="form-label ">8. Chọn bộ phận</label>
+            <select id="newDivision" class="form-control">
+              <option value="1">Marketing</option>
+              <option value="1">IT</option>
+              <option value="1">Quản lý</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="newSalary" class="form-label ">9.Nhập lương</label>
+            <input type="text" class="form-control" id="newSalary"
+                   placeholder="Nhập lương">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="addBtn" class="btn btn-outline-success">Thêm mới</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!--The Update Modal-->
+<div class="modal" id="updateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header bg-warning text-white text-center">
+        <h4 class="modal-title">Cập nhật Nhân viên</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form class="bg-light text-warning fw-bold p-5">
+        <input type="hidden" id="idUpdate">
+        <div class="mb-3">
+          <label for="updateName" class="form-label ">1. Nhập tên nhân viên</label>
+          <input type="text" class="form-control" id="updateName"
+                 placeholder="Nhập tên nhân viên">
+        </div>
+        <div class="mb-3">
+          <label for="updateBirthDay" class="form-label ">2. Nhập ngày sinh </label>
+          <input type="date" class="form-control" id="updateBirthDay"
+                 placeholder="Nhập ngày sinh">
+        </div>
+        <div class="mb-3">
+          <label for="updateIDCard" class="form-label ">3. Nhập số CMND</label>
+          <input type="text" class="form-control" id="updateIDCard"
+                 placeholder="Nhập số CMND">
+        </div>
+        <div class="mb-3">
+          <label for="updatePhone" class="form-label ">4. Nhập số điện thoại</label>
+          <input type="text" class="form-control" id="updatePhone"
+                 placeholder="Nhập số điện thoại">
+        </div>
+        <div class="mb-3">
+          <label for="updateEmail" class="form-label ">5. Nhập email</label>
+          <input type="text" class="form-control" id="updateEmail"
+                 placeholder="Nhập email">
+        </div>
+        <div class="mb-3">
+          <label for="updateAddress" class="form-label ">5. Nhập địa chỉ</label>
+          <input type="text" class="form-control" id="updateAddress"
+                 placeholder="Nhập địa chỉ">
+        </div>
+        <div class="mb-3">
+          <label for="newED1" class="form-label ">6. Chọn trình độ</label>
+          <select id="newED1" class="form-control">
+            <option value="1">Trung cấp</option>
+            <option value="2">Đại học</option>
+            <option value="3">Sau đại học</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="newPosition1" class="form-label ">7. Chọn vị trí</label>
+          <select id="newPosition1" class="form-control">
+            <option value="1">Giám Đốc</option>
+            <option value="2">Quản lý</option>
+            <option value="3">Nhân viên</option>
+          </select>
+        </div>
+        <div class="mb-3">.
+          <label for="newDivision1" class="form-label ">8. Chọn bộ phận</label>
+          <select id="newDivision1" class="form-control">
+            <option value="1">Marketing</option>
+            <option value="1">IT</option>
+            <option value="1">Quản lý</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="updateSalary" class="form-label ">9.Nhập lương</label>
+          <input type="text" class="form-control" id="updateSalary"
+                 placeholder="Nhập lương">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="updateBtn" class="btn btn-outline-warning">Cập nhật</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- The Delete Modal ok-->
+<div class="modal" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header bg-danger text-white">
+        <h4 class="modal-title">DELETE EMPLOYEE</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form action="/employee/delete" method="get">
+        <div class="modal-body">
+          <span>Bạn muốn xóa nhân viên ?</span>
+          <input type="text" hidden readonly name="idDelete" id="idDelete">
+          <input type="text" readonly id="nameDelete">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- The mess Modal -->
+<div class="modal" id="messModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h4 class="modal-title text-white">Message</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p id="messtext" class="fw-bold">xcvxvxv</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form action="/employee/messUpdate">
+  <input type="hidden" name="mess" value="Update success">
+</form>
+
+<script src="/js/jquery-3.6.1.min.js"></script>
+<script>
+  function getInfoToDelete(id, name) {
+    document.getElementById("idDelete").value = id;
+    document.getElementById("nameDelete").value = name;
+  }
+
+  // Get info to UpdateForm
+  function showUpdateForm(id) {
+    $.ajax({
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      type: "GET",
+      url: "http://localhost:8080/employeeRest/showUpdate?idUpdate=" + id,
+      success: function (employeeUpdate) {
+
+        $('#idUpdate').val(employeeUpdate.employeeId);
+        $('#updateName').val(employeeUpdate.employeeName);
+        $('#updateBirthDay').val(employeeUpdate.dateOfBirth);
+        $('#updateIDCard').val(employeeUpdate.idCard);
+        $('#updatePhone').val(employeeUpdate.phoneNumber);
+        $('#updateEmail').val(employeeUpdate.email);
+        $('#updateAddress').val(employeeUpdate.address);
+        $('#updateED').val(employeeUpdate.educationDegree.educationDegreeId);
+        $('#updatePosition').val(employeeUpdate.position.positionId);
+        $('#updateDivision').val(employeeUpdate.division.divisionId);
+        $('#updateSalary').val(employeeUpdate.salary);
+      },
+      error: function (resultError) {
+        alert('error show update');
+      }
+    });
+  }
+
+  // Update Employee
+  $('#updateBtn').click(function (event) {
+    let idUpdate = $('#idUpdate').val();
+    let updateName = $('#updateName').val();
+    let updateBirthDay = $('#updateBirthDay').val();
+    let updateIDCard = $('#updateIDCard').val();
+    let updatePhone = $('#updatePhone').val();
+    let updateEmail = $('#updateEmail').val();
+    let updateAddress = $('#updateAddress').val();
+    let updateED = $('#updateED').val();
+    let updatePosition = $('#updatePosition').val();
+    let updateDivision = $('#updateDivision').val();
+    let updateSalary = $('#updateSalary').val();
+    console.log(updatePosition);
+    console.log(updateDivision);
+    console.log(updateED);
+    let updateEmployeeDto = {
+      employeeId: idUpdate,
+      employeeName: updateName,
+      dateOfBirth: updateBirthDay,
+      idCard: updateIDCard,
+      salary: updateSalary,
+      phoneNumber: updatePhone,
+      email: updateEmail,
+      address: updateAddress,
+      position: updatePosition,
+      educationDegree: updateED,
+      division: updateDivision,
+    }
+    console.log(updateEmployeeDto)
+
+    $.ajax({
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      type: "PATCH",
+      url: "http://localhost:8080/employeeRest/update",
+      data: JSON.stringify(updateEmployeeDto),
+      success: function () {
+        // $('#messtext').html(mess);
+        // showListEmployee(page, name)
+
+        let mess = "Cập nhật thành công"
+        $('#messtext').html(mess);
+        $('#messModal').modal('show');
+      },
+      error: function (resultError) {
+        alert('error update');
+      }
+    });
+  })
+
+
+  //Hiện modal thông báo thêm sửa xóa thành công
+  $(window).on('load', function () {
+      let mess = $('#messInput').val();
+      if (mess) {
+        $('#messModal').modal('show');
+      }
+    }
+  )
+</script>
+
+
+

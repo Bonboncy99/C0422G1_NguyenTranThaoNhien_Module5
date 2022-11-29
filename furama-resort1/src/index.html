@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FuramaResort</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+</head>
+<body>
+<app-root></app-root>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script>
+  function displayInput() {
+    const value = $('#addSelect').val();
+    switch (value) {
+      case 'none':
+        $('#divStandardRoom').hide();
+        $('#divDescriptionOtherConvenience').hide();
+        $('#divPoolArea').hide();
+        $('#divPoolArea').val(0);
+        $('#divNumberOfFloor').hide();
+        $('#divNumberOfFloor').val(0);
+        $('#divFacilityFree').hide();
+        break;
+      case '1':
+        $('#divStandardRoom').show();
+        $('#divDescriptionOtherConvenience').show();
+        $('#divPoolArea').show();
+        $('#divNumberOfFloor').show();
+        $('#divFacilityFree').hide();
+        break;
+
+      case '2':
+        $('#divStandardRoom').show();
+        $('#divDescriptionOtherConvenience').show();
+        $('#divPoolArea').hide();
+        $('#divPoolArea').val(0);
+        $('#divNumberOfFloor').show();
+        $('#divFacilityFree').hide();
+        break;
+      case '3':
+        $('#divStandardRoom').hide();
+        $('#divDescriptionOtherConvenience').hide();
+        $('#divPoolArea').hide();
+        $('#divPoolArea').val(0);
+        $('#divNumberOfFloor').hide();
+        $('#divNumberOfFloor').val(0);
+        $('#divFacilityFree').show();
+        break;
+    }
+  }
+</script>
+
+</body>
+</html>
