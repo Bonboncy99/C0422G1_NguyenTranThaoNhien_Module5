@@ -1,8 +1,11 @@
 
 <h2>Today's article</h2>
 <hr>
+<app-like #child [test1]="2"></app-like>
+
+<button (click)="child.addBaiDang()">Reload</button>
 <div *ngFor="let art of articles">
-  <a href="{{art.url}}" target="_blank">{{art.title}}</a> : <app-like></app-like>
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a> :
 </div>
 <hr>
 <div>

@@ -33,7 +33,7 @@ public class VehicleRestController {
     public ResponseEntity<Vehicle> findById(@PathVariable int id) {
         Vehicle vehicle = this.iVehicleService.findById(id);
         if (vehicle == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND v b);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
@@ -59,9 +59,9 @@ public class VehicleRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<Void> update(@PathVariable int id, @RequestBody Vehicle vehicle) {
-        this.iVehicleService.update(vehicle.getVehicleType(), vehicle.getName(), vehicle.getFromPoint(), vehicle.getEndPoint(), vehicle.getEmail(), vehicle.getPhone(), vehicle.getStartTime(), vehicle.getEndTime(), id);
+    @PatchMapping("")
+    public ResponseEntity<Void> update(@RequestBody Vehicle vehicle) {
+        this.iVehicleService.update(vehicle.getVehicleType(), vehicle.getName(), vehicle.getFromPoint(), vehicle.getEndPoint(), vehicle.getEmail(), vehicle.getPhone(), vehicle.getStartTime(), vehicle.getEndTime(), vehicle.getId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 //    @PatchMapping("")

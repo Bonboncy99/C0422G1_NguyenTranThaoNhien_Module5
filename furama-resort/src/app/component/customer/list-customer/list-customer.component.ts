@@ -14,26 +14,33 @@ export class ListCustomerComponent implements OnInit {
   customerList: Customer[] = [];
   deleteCustomer: Customer;
   detailCus: Customer;
-  page = 1;
+  page = 0;
+  size;
+  totalPage;
   cuTypeList: CustomerType[] = [];
 
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService) {
-    this.customerTypeService.getAll().subscribe(types => this.cuTypeList = types);
+    this.customerTypeService.getAll().subscribe(
+      types => this.cuTypeList = types);
   }
 
   ngOnInit(): void {
-    this.customerService.getAll().subscribe(customerData => {
-      console.log(customerData);
-      this.customerList = customerData;
-    });
+    this.getAllCustomer();
     this.customerTypeService.getAll().subscribe(typeList => {
       this.cuTypeList = typeList;
     });
-    this.customerTypeService.getAll().subscribe(types => this.cuTypeList = types);
 
   }
 
+  getAllCustomer() {
+    this.customerService.getAll(this.page).subscribe(customerData => {
+      this.customerList = customerData.content;
+      console.log(this.customerList);
+      this.totalPage = customerData.totalPages;
+      this.size = customerData.size;
+    });
+  }
 
   getDeleteCustomer(cus: Customer) {
     this.deleteCustomer = cus;
@@ -55,10 +62,11 @@ export class ListCustomerComponent implements OnInit {
   getCustomer(cus: Customer) {
     this.detailCus = cus;
   }
-
-  search(name: string, phone: string, email: string, typeId: string) {
-    this.customerService.search(name, phone, email, typeId).subscribe(customerList => {
-      this.customerList = customerList;
+  search(name: string, phone: string, email: string, typeName: string) {
+    this.customerService.search(name, phone, email, typeName,this.page).subscribe(customerPage => {
+      this.customerList = customerPage.content;
+      this.totalPage = customerPage.totalPages;
+      this.size = customerPage.size;
     });
   }
 
@@ -67,5 +75,19 @@ export class ListCustomerComponent implements OnInit {
     this.customerService.searchMulti(keyword).subscribe(customerList => {
       this.customerList = customerList;
     });
+  }
+
+  previous() {
+    if (this.page > 0) {
+      this.page--;
+      this.getAllCustomer();
+    }
+  }
+
+  next() {
+    if (this.page < this.totalPage-1) {
+      this.page++;
+      this.getAllCustomer();
+    }
   }
 }

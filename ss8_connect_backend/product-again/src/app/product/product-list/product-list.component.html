@@ -8,18 +8,25 @@
     <th>Name</th>
     <th>Description</th>
     <th>Price</th>
-    <th>Sửa</th>
-    <th>Xóa</th>
+    <th>Category</th>
+    <th>Update</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of productList">
-      <td>{{product.id}}</td>
-      <td>{{product.name}}</td>
-      <td>{{product.description}}</td>
-      <td>{{product.price}}</td>
-      <td>Sửa</td>
-      <td>Xóa</td>
+    <tr *ngFor="let product of productList; index as i">
+      <td>{{i+1}}</td>
+      <td *ngIf="product.name">{{product.name}}</td>
+      <td *ngIf="!product.name"></td>
+      <td *ngIf="product.description">{{product.description}}</td>
+      <td *ngIf="!product.description"></td>
+      <td *ngIf="product.price">{{product.price}}</td>
+      <td *ngIf="!product.price"></td>
+      <td *ngIf="product.category">{{product.category.name}}</td>
+      <td *ngIf="!product.category"></td>
+      <td><button class="btn btn-outline-warning" [routerLink]="['/edit',product.id]" >Update</button></td>
+<!--      <td><button class="btn btn-outline-danger" type="submit" (click)="delete(product)">Delete</button></td>-->
+      <td><button class="btn btn-outline-danger" [routerLink]="['/delete',product.id]"  >Delete</button></td>
     </tr>
   </tbody>
 </table>

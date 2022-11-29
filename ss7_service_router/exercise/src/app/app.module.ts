@@ -13,25 +13,22 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 import { DeleteProductComponent } from './product/delete-product/delete-product.component';
 import { DictionaryListComponent } from './dictionary/dictionary-list/dictionary-list.component';
 import { DictionaryDetailComponent } from './dictionary/dictionary-detail/dictionary-detail.component';
+import {HttpClientModule} from "@angular/common/http";
+import { TodoComponent } from './data/todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimelinesComponent,
-    YoutubePlaylistComponent,
-    YoutubePlayerComponent,
-    ProductListComponent,
-    ProductCreateComponent,
-    UpdateProductComponent,
-    DeleteProductComponent,
-    DictionaryListComponent,
-    DictionaryDetailComponent
+    // TimelinesComponent,
+    // YoutubePlaylistComponent,
+    // YoutubePlayerComponent,
+    // DictionaryListComponent,
+    // DictionaryDetailComponent,
+    // TodoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

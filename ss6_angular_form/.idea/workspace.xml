@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0bdcd1c8-9e5a-4d49-9ea5-359dcf6afbcd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ss9_depedency_injection/exercise/src/app/image-gallery/token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/addFacility.html" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/addFacility.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/addFacility1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/addFacility1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/headercustom.html" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/headercustom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/lib/animate/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/lib/animate/animate.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casestudy/giao_dien/furama/updateFacility.html" beforeDir="false" afterPath="$PROJECT_DIR$/../casestudy/giao_dien/furama/updateFacility.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_UX_UI/practice/Simplify your life.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_UX_UI/practice/Simplify your life.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_angular/practice/untitled/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_angular/practice/untitled/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_angular/practice/untitled/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_angular/practice/untitled/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_angular/practice/untitled/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_angular/practice/untitled/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/delete-product/delete-product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/delete-product/delete-product.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/product-create/product-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/product-create/product-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/product-list/product-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/product-list/product-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/update-product/update-product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/product/update-product/update-product.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/app/service/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_service_router/exercise/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_service_router/exercise/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/data/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/model/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-create/product-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-create/product-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-create/product-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-create/product-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-list/product-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/product/product-list/product-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect_backend/product-again/src/app/service/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect_backend/product-again/tslint.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2FcTTPAUIr4op0ME1kv73X5sgUG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0bdcd1c8-9e5a-4d49-9ea5-359dcf6afbcd" name="Default Changelist" comment="" />
+      <created>1664790379409</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664790379409</updated>
+      <workItem from="1664790380603" duration="6000" />
+    </task>
+    <servers />
+  </component>
+</project>

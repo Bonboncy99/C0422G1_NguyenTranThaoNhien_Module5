@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Article} from "../article";
+import {Component, Input, OnInit} from '@angular/core';
+import {Article} from '../article';
 
 @Component({
   selector: 'app-article',
@@ -7,6 +7,7 @@ import {Article} from "../article";
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+
   article: Article = {};
   articles: Article[] = [
     {
@@ -41,6 +42,9 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
   }
 
+  add() {
+    window.location.reload();
+  }
 }
 
 

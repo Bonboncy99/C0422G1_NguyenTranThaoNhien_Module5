@@ -17,7 +17,10 @@ export class UpdateProductComponent implements OnInit {
               private router: Router) {
     activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
-      this.product = this.productService.findById(parseInt(id));
+      this.productService.findById(parseInt(id)).subscribe(product=>{
+        console.log(product)
+        this.product = product;
+      });
       this.updateProductForm = new FormGroup({
         id: new FormControl(this.product.id),
         name: new FormControl(this.product.name),
@@ -34,7 +37,8 @@ export class UpdateProductComponent implements OnInit {
   submid() {
     console.log(this.updateProductForm.value)
     const product = this.updateProductForm.value;
-    this.productService.saveProduct(product);
-    this.router.navigateByUrl('product/list');
+    this.productService.updateProduct(product.id,product).subscribe(next=>{
+      this.router.navigateByUrl('product/list');
+    });
   }
 }

@@ -12,8 +12,9 @@ export class DeleteProductComponent implements OnInit {
   constructor(private productService:ProductService, private activatedRoute:ActivatedRoute, private router:Router) {
     activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
       let id = paramMap.get("id");
-      this.productService.deleteById(parseInt(id));
-      router.navigateByUrl('product/list');
+      this.productService.deleteById(parseInt(id)).subscribe(next=>{
+        router.navigateByUrl('product/list');
+      });
     })
   }
 

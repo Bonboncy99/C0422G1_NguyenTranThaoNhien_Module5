@@ -37,12 +37,12 @@
         </div>
       </div>
       <div class="row">
-        <select name="customerTypeName" class="form-control" #typeIdSearch>
+        <select name="customerTypeName" class="form-control" #typeStringSearch>
           <option value="">Select Customer Type</option>
-          <option *ngFor="let type of cuTypeList" value="{{type.id}}">{{type.name}}</option>
+          <option *ngFor="let type of cuTypeList" value="{{type.customerTypeName}}">{{type.customerTypeName}}</option>
         </select>
       </div>
-      <button class="btn btn-success" (click)="search(nameSearch.value,phoneSearch.value,emailSearch.value,typeIdSearch.value)">Search</button>
+      <button class="btn btn-success" (click)="search(nameSearch.value,phoneSearch.value,emailSearch.value,typeStringSearch.value)">Search</button>
     </div>
 
 
@@ -61,7 +61,6 @@
     <thead class="table-info table-bordered text-dark text-center">
     <tr>
       <th>#</th>
-      <th>Customer code</th>
       <th>Customer Type</th>
       <th>Name</th>
       <th>Date of birth</th>
@@ -75,23 +74,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let cus of customerList|paginate:{itemsPerPage:5,currentPage:page} ,
-    let let index as i">
-      <td>{{i + 1}}</td>
-      <td *ngIf="cus.customerCode"><a class="text-info fw-bold" data-bs-toggle="modal" data-bs-target="#detailModal"
-                                      (click)="getCustomer(cus)">{{cus.customerCode}}</a></td>
-      <td *ngIf="!cus.customerCode"></td>
-      <td>{{cus.customerType.name}}</td>
-      <td>{{cus.name}}</td>
+    <tr *ngFor="let cus of customerList,let let index as i">
+      <td>{{page*size + i+1}}</td>
+      <td>{{cus.customerType.customerTypeName}}</td>
+      <td *ngIf="!cus.customerId"></td>
+      <td (click)="getCustomer(cus)">{{cus.customerName}}</td>
       <td>{{cus.dateOfBirth}}</td>
       <td *ngIf="cus.gender">Nam</td>
       <td *ngIf="!cus.gender">Nữ</td>
       <td>{{cus.idCard}}</td>
-      <td>{{cus.phone}}</td>
+      <td>{{cus.phoneNumber}}</td>
       <td>{{cus.email}}</td>
       <td>{{cus.address}}</td>
       <td>
-        <a class="btn btn-outline-warning" [routerLink]="['/customer/edit', cus.id]">
+        <a class="btn btn-outline-warning" [routerLink]="['/customer/edit', cus.customerId]">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                class="bi bi-pencil-square" viewBox="0 0 16 16">
             <path
@@ -118,9 +114,18 @@
 
 <!--Phaan trang-->
 <div class="container-fluid mt-3">
-  <div class="pagination float-end">
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
-  </div>
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="previous()" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <li class="page-item disabled"><a class="page-link" >{{page + 1}} / {{totalPage}}</a></li>
+
+      <li class="page-item">
+        <a class="page-link" (click)="next()">Next</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 
@@ -134,12 +139,12 @@
       </div>
       <div class="modal-body">
         Do you want to delete this xxxxxx?
-          <div>Name: <span class="fst-italic">{{deleteCustomer.name}}</span></div>
+          <div>Name: <span class="fst-italic">{{deleteCustomer.customerName}}</span></div>
         <span class="text-danger">(This action cannot be undone)</span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(deleteCustomer.id)">
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(deleteCustomer.customerId)">
           Delete
         </button>
       </div>
@@ -159,15 +164,15 @@
       <div class="modal-body">
         <div class="input-group">
           <span class="input-group-text">Customer code</span>
-          <input type="text" class="form-control"  value="{{detailCus.customerCode}}">
+          <input type="text" class="form-control"  value="{{detailCus.customerId}}">
         </div>
         <div class="input-group">
           <span class="input-group-text">Customer Type	</span>
-          <input type="text" class="form-control" [value]="detailCus.customerType.name">
+          <input type="text" class="form-control" [value]="detailCus.customerName">
         </div>
         <div class="input-group">
           <span class="input-group-text">Name</span>
-          <input type="text" class="form-control" [value]="detailCus.name">
+          <input type="text" class="form-control" [value]="detailCus.customerName">
         </div>
         <div class="input-group">
           <span class="input-group-text">Date of birth	</span>
@@ -183,7 +188,7 @@
         </div>
         <div class="input-group">
           <span class="input-group-text">Phone	</span>
-          <input type="text" class="form-control" [value]="detailCus.phone">
+          <input type="text" class="form-control" [value]="detailCus.phoneNumber">
         </div>
         <div class="input-group">
           <span class="input-group-text">Email</span>
@@ -195,7 +200,7 @@
         </div>
         <div class="input-group">
           <span class="input-group-text">Name</span>
-          <input type="text" class="form-control" [value]="detailCus.name">
+          <input type="text" class="form-control" [value]="detailCus.customerName">
         </div>
       </div>
       <div class="modal-footer">

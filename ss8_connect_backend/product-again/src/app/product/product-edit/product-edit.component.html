@@ -1,0 +1,27 @@
+
+<h1 class="text-success text-center" >Update Product</h1>
+<div class="container">
+  <form class="p-5" [formGroup]="formUpdate" (ngSubmit)="submit()"  >
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control"  [value]="updateProduce.name" id="name" formControlName="name">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" formControlName="price">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label" >Description</label>
+      <input type="text" class="form-control" id="description"  formControlName="description">
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select   name="category" id="category"  formControlName="category">
+        <option   *ngFor="let cate of categoryList" [ngValue]="cate">
+          {{cate.name}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

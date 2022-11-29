@@ -1,22 +1,38 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Táo",
-      "price": 10,
-      "description": "Trái cây"
-    },
-    {
-      "id": 2,
-      "name": "Cá chuồn",
-      "price": 20,
-      "description": "Cá"
-    },
-    {
       "id": 3,
       "name": "Cải",
       "price": 15,
-      "description": "Rau"
+      "description": "Rau",
+      "category": {
+        "id": 2,
+        "name": "Loại 2"
+      }
+    },
+    {
+      "name": "Nhiên",
+      "price": 3,
+      "description": "Ngọt",
+      "category": {
+        "id": 1,
+        "name": "Loại 1"
+      },
+      "id": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Loại 1"
+    },
+    {
+      "id": 2,
+      "name": "Loại 2"
+    },
+    {
+      "id": 3,
+      "name": "Loại 3"
     }
   ]
 }
